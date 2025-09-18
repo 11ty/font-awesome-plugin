@@ -16,7 +16,7 @@ _**Requires Eleventy v3.0.1 or newer.**_
 
 ### Not yet supported
 
-- Animation classes..
+- Animation classes
 
 ## Usage
 
