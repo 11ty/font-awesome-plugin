@@ -8,7 +8,7 @@ _**Requires Eleventy v3.0.1 or newer.**_
 
 ## Features
 
-- Using [Font Awesome v7](https://fontawesome.com/icons): choose from any of the 2089 free icons provided by Font Awesome or optionally add Pro sets too.
+- Using [Font Awesome v7](https://fontawesome.com/icons): choose from any of the 2000+ free icons provided by Font Awesome or optionally add Pro sets too.
 - Creates a customized per-page de-duplicated SVG sprite-sheet for _any_ template in Eleventy that outputs HTML (yes, even Markdown).
 - Driven via HTML: copy HTML directly from the Font Awesome docs (e.g. `<i class="fa-regular fa-user"></i>`).
 - SVG-only. No additional CSS or JavaScript is added.
@@ -38,9 +38,9 @@ export default function(eleventyConfig) {
 
 Add the HTML markup from any of the 2000+ free icons from the Font Awesome library directly into any Eleventy template type (yes, Markdown, too) (e.g. `<i class="fa-regular fa-user"></i>`):
 
-- [Font Awesome Solid](https://fontawesome.com/search?o=r&ic=free&s=solid) (currently 1,402 icons)
-- [Font Awesome Regular](https://fontawesome.com/search?o=r&ic=free&s=regular) (currently 163 icons)
-- [Font Awesome Brands](https://fontawesome.com/search?o=r&ic=free&ip=brands) (currently 495 icons)
+- [Font Awesome Solid](https://fontawesome.com/search?o=r&ic=free&s=solid)
+- [Font Awesome Regular](https://fontawesome.com/search?o=r&ic=free&s=regular)
+- [Font Awesome Brands](https://fontawesome.com/search?o=r&ic=free&ip=brands)
 
 Somewhere on your page (probably in an [Eleventy Layout file](https://www.11ty.dev/docs/layouts/)), you’ll want to output the spritesheet from the [Bundle Plugin](https://www.11ty.dev/docs/plugins/bundle/):
 
