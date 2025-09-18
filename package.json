@@ -30,16 +30,16 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",
-    "ava": "^6.2.0"
+    "ava": "^6.4.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.7.2",
-    "@fortawesome/free-brands-svg-icons": "^6.7.2",
-    "@fortawesome/free-regular-svg-icons": "^6.7.2",
-    "@fortawesome/free-solid-svg-icons": "^6.7.2",
-    "debug": "^4.4.0",
-    "entities": "^6.0.0",
-    "nanoid": "^5.1.0",
+    "@fortawesome/fontawesome-svg-core": "^7.0.1",
+    "@fortawesome/free-brands-svg-icons": "^7.0.1",
+    "@fortawesome/free-regular-svg-icons": "^7.0.1",
+    "@fortawesome/free-solid-svg-icons": "^7.0.1",
+    "debug": "^4.4.3",
+    "entities": "^7.0.0",
+    "nanoid": "^5.1.5",
     "posthtml-match-helper": "^2.0.3"
   }
 }
