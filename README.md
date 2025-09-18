@@ -28,7 +28,7 @@ npm install @11ty/font-awesome
 
 Add to your configuration file:
 
-```sh
+```js
 import fontAwesomePlugin from "@11ty/font-awesome";
 
 export default function(eleventyConfig) {
