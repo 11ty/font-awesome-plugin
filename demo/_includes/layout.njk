@@ -1,5 +1,17 @@
-<main>
-{{ content | safe }}
-</main>
-
-{% getBundle "fontawesome" %}
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+		svg {
+			height: 3em;
+			width: 3em;
+		}
+		</style>
+	</head>
+	<body>
+		<main>{{ content | safe }}</main>
+		{% getBundle "fontawesome" %}
+	</body>
+</html>
