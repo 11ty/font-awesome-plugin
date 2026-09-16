@@ -3,6 +3,10 @@
   "version": "2.0.0",
   "type": "module",
   "main": "plugin.js",
+  "files": [
+    "plugin.js",
+    "src/"
+  ],
   "description": "Optimized per-page tree-shaken SVG spritesheets for Eleventy.",
   "publishConfig": {
     "access": "public"
