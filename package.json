@@ -25,21 +25,20 @@
   "scripts": {
     "update-prefixes": "node src/get-prefixes.js",
     "test": "npx ava",
-    "demo": "npx @11ty/eleventy --input=demo --config=demo/eleventy.config.js",
-    "start": "npx @11ty/eleventy --input=demo --config=demo/eleventy.config.js --serve"
+    "start": "cd demo && npx @11ty/eleventy --serve"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "ava": "^6.4.1"
+    "@11ty/eleventy": "^3.1.6",
+    "ava": "^8.0.1"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^7.1.0",
-    "@fortawesome/free-brands-svg-icons": "^7.1.0",
-    "@fortawesome/free-regular-svg-icons": "^7.1.0",
-    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/fontawesome-svg-core": "^7.3.1",
+    "@fortawesome/free-brands-svg-icons": "^7.3.1",
+    "@fortawesome/free-regular-svg-icons": "^7.3.1",
+    "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "debug": "^4.4.3",
-    "entities": "^7.0.0",
-    "nanoid": "^5.1.6",
+    "entities": "^8.1.0",
+    "nanoid": "^6.0.1",
     "posthtml-match-helper": "^2.0.3"
   }
 }

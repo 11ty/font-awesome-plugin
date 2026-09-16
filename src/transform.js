@@ -143,7 +143,7 @@ function Transform(eleventyConfig, options = {}) {
 								throw new Error("Could not find icon: " + node.attrs.class);
 							}
 
-							let { ref, html } = faIconToHtml(selector);
+							let { ref, html, viewBox } = faIconToHtml(selector);
 							if(pageUrl && managers[bundleName] && html) {
 								managers[bundleName].addToPage(pageUrl, [ html ]);
 
@@ -180,6 +180,9 @@ function Transform(eleventyConfig, options = {}) {
 									tag: "use",
 									attrs: svgAttributes,
 								});
+
+								// Match Font Awesome’s own SVG output so the icon has an intrinsic aspect ratio
+								attrs.viewBox = viewBox;
 
 								return {
 									tag: "svg",

@@ -44,7 +44,7 @@ export default function(eleventyConfig, pluginOptions = {}) {
 
 	if(options.shortcode !== false) {
 		eleventyConfig.addShortcode(options.shortcode, function(selector, attrs = {}) {
-			let {ref, html: iconHtml} = faIconToHtml(selector);
+			let {ref, html: iconHtml, viewBox} = faIconToHtml(selector);
 
 			let managers = eleventyConfig.getBundleManagers();
 			let svgBundle = managers[options.bundle];
@@ -66,6 +66,8 @@ export default function(eleventyConfig, pluginOptions = {}) {
 
 				contentStr = `<title id="${id}">${attrs?.alt}</title>`;
 			}
+
+			mergedAttributes.viewBox = viewBox;
 
 			let attrStr = attrsToHtml(mergedAttributes);
 			return `<svg${attrStr ? ` ${attrStr}` : ""}><use href="#${ref}" xlink:href="#${ref}"></use>${contentStr}</svg>`;

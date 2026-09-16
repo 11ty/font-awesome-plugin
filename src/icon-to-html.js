@@ -38,9 +38,12 @@ function faIconToHtml(selector) {
 		throw new Error("Could not find icon: " + selector);
 	}
 
+	let [width, height] = iconDef.icon;
+
 	return {
 		ref: `${iconDef.prefix}-fa-${iconDef.iconName}`,
 		html: html.join(""),
+		viewBox: `0 0 ${width} ${height}`,
 	}
 }
 
