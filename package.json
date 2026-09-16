@@ -23,7 +23,8 @@
     "node": ">=18"
   },
   "scripts": {
-    "update-prefixes": "node src/get-prefixes.js",
+    "update-prefixes": "node lib/get-prefixes.js",
+    "prepublishOnly": "npm run update-prefixes",
     "test": "npx ava",
     "start": "cd demo && npx @11ty/eleventy --serve"
   },
