@@ -55,6 +55,20 @@ Somewhere on your page (probably in an [Eleventy Layout file](https://www.11ty.d
 {% getBundle "fontawesome" %}
 ```
 
+### Sample CSS
+
+Size icons by height so each keeps its own aspect ratio, and allow glyphs to overflow their `viewBox`:
+
+```css
+svg {
+	height: 1em;
+}
+svg,
+symbol {
+	overflow: visible;
+}
+```
+
 ### Advanced Usage
 
 #### Use Font Awesome Pro Icon sets (or Kits)
