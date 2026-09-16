@@ -2,7 +2,7 @@ import test from "ava";
 import { findIconDefinition } from "@fortawesome/fontawesome-svg-core";
 import Eleventy from "@11ty/eleventy";
 import fontAwesomePlugin from "../plugin.js";
-import { findIconMetadata, filterAttrs } from "../src/transform.js";
+import { findIconMetadata, filterAttrs, classToIconSelector } from "../src/transform.js";
 
 
 test("Transform", async t => {
@@ -237,4 +237,24 @@ test("Opt-out of xlink:href attributes", async t => {
 	let [result] = await elev.toJSON();
 	t.is(result.content, `<svg aria-hidden="true" viewBox="0 0 448 512"><use href="#far-fa-user"></use></svg>
 <svg style="display: none;"><symbol data-prefix="far" data-icon="user" class="svg-inline--fa fa-user" role="img" viewBox="0 0 448 512" aria-hidden="true" id="far-fa-user"><path fill="currentColor" d="M144 128a80 80 0 1 1 160 0 80 80 0 1 1 -160 0zm208 0a128 128 0 1 0 -256 0 128 128 0 1 0 256 0zM48 480c0-70.7 57.3-128 128-128l96 0c70.7 0 128 57.3 128 128l0 8c0 13.3 10.7 24 24 24s24-10.7 24-24l0-8c0-97.2-78.8-176-176-176l-96 0C78.8 304 0 382.8 0 480l0 8c0 13.3 10.7 24 24 24s24-10.7 24-24l0-8z"></path></symbol></svg>`);
+});
+test("Old v4 syntax without a style", async t => {
+	t.is(classToIconSelector("fa fa-code"), "fas:code");
+	t.is(classToIconSelector("fa fa-github"), "fab:github");
+	t.is(classToIconSelector("fa fa-github-square"), "fab:github-square");
+	t.is(classToIconSelector("fa fa-this-icon-does-not-exist"), undefined);
+	t.deepEqual(filterAttrs({ class: "fa fa-github my-class" }), { class: "my-class" });
+});
+
+test("Old v4 syntax without a style (html)", async t => {
+	let elev = new Eleventy("./test/virtual/", "./_site", {
+		config: function(eleventyConfig) {
+			eleventyConfig.addPlugin(fontAwesomePlugin);
+
+			eleventyConfig.addTemplate("index.njk", `<i class="fa fa-github"></i>`);
+		}
+	});
+
+	let [result] = await elev.toJSON();
+	t.is(result.content.trim(), `<svg aria-hidden="true" viewBox="0 0 512 512"><use href="#fab-fa-github" xlink:href="#fab-fa-github"></use></svg>`);
 });

@@ -1,5 +1,6 @@
 import debugUtil from "debug";
 import matchHelper from "posthtml-match-helper";
+import { findIconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 import { mergeAttrs, faIconToHtml } from "./icon-to-html.js";
 import PREFIXES from "./prefixes.js";
@@ -31,6 +32,9 @@ const PRESERVED_CLASSES = new Set([
 
 const VALID_PREFIXES = new Set(PREFIXES.prefixes);
 
+// Prefixes tried in order when markup has no style (e.g. v4 `fa fa-github`)
+const FALLBACK_PREFIXES = ["fas", "far", "fab"];
+
 const debug = debugUtil("Eleventy:FontAwesome");
 
 function filterAttrs(attrs = {}) {
@@ -39,7 +43,7 @@ function filterAttrs(attrs = {}) {
 			if(PRESERVED_CLASSES.has(cls)) {
 				return true;
 			}
-			if(VALID_PREFIXES.has(cls) || cls.startsWith("fa-")) {
+			if(cls === "fa" || VALID_PREFIXES.has(cls) || cls.startsWith("fa-")) {
 				return false;
 			}
 
@@ -108,8 +112,14 @@ function findIconMetadata(className = "") {
 }
 
 function classToIconSelector(className = "") {
-	const { prefix, iconName } = findIconMetadata(className);
-	if(prefix && iconName) {
+	let { prefix, iconName } = findIconMetadata(className);
+	if(!iconName) {
+		return;
+	}
+	if(!prefix) {
+		prefix = FALLBACK_PREFIXES.find(p => findIconDefinition({ prefix: p, iconName }));
+	}
+	if(prefix) {
 		return `${prefix}:${iconName}`;
 	}
 }
@@ -209,4 +219,4 @@ function Transform(eleventyConfig, options = {}) {
 	);
 }
 
-export { filterAttrs, findIconMetadata, Transform };
+export { filterAttrs, findIconMetadata, classToIconSelector, Transform };
