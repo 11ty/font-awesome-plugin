@@ -24,7 +24,7 @@
   "homepage": "https://github.com/11ty/eleventy-plugin-font-awesome",
   "license": "MIT",
   "engines": {
-    "node": ">=18"
+    "node": ">=20.19.0"
   },
   "scripts": {
     "update-prefixes": "node lib/get-prefixes.js",
