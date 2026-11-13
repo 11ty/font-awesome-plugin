@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
-    "ava": "^6.4.1"
+    "ava": "^8.4.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
@@ -42,7 +42,7 @@
     "@fortawesome/free-regular-svg-icons": "^7.3.1",
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "debug": "^4.4.3",
-    "entities": "^8.1.0",
+    "entities": "^9.0.0",
     "nanoid": "^6.0.1",
     "posthtml-match-helper": "^2.0.3"
   }
