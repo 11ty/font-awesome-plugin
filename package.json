@@ -29,12 +29,11 @@
   "scripts": {
     "update-prefixes": "node lib/get-prefixes.js",
     "prepublishOnly": "npm run update-prefixes",
-    "test": "npx ava",
+    "test": "node --test test/test.js",
     "start": "cd demo && npx @11ty/eleventy --serve"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.6",
-    "ava": "^6.4.1"
+    "@11ty/eleventy": "^3.1.8"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.3.1",
@@ -43,7 +42,7 @@
     "@fortawesome/free-solid-svg-icons": "^7.3.1",
     "debug": "^4.4.3",
     "entities": "^8.1.0",
-    "nanoid": "^6.0.1",
+    "nanoid": "^6.0.2",
     "posthtml-match-helper": "^2.0.3"
   }
 }
